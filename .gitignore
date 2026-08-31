@@ -7,6 +7,9 @@ __pycache__/
 build/
 dist/
 
+# Imagens protegidas por copyright
+back.png
+
 # Cache de imagens (baixadas da Scryfall)
 cartas/
 !cartas/.gitkeep
