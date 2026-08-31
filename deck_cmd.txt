@@ -1,0 +1,102 @@
+﻿COMMANDER
+1 Niv-Mizzet, Parun
+
+LANDS (36)
+1 Command Tower
+1 Steam Vents
+1 Sulfur Falls
+1 Shivan Reef
+1 Stormcarved Coast
+1 Spirebluff Canal
+1 Temple of Epiphany
+1 Izzet Boilerworks
+1 Exotic Orchard
+1 Training Center
+1 Fiery Islet
+1 Riverglide Pathway // Lavaglide Pathway
+1 Cascade Bluffs
+1 Desolate Lighthouse
+1 Reliquary Tower
+1 Myriad Landscape
+1 Terramorphic Expanse
+1 Evolving Wilds
+1 Fabled Passage
+1 Prismari Campus
+1 Temple of the False God
+1 Forgotten Cave
+1 Lonely Sandbar
+6 Island
+7 Mountain
+
+RAMP (6)
+1 Sol Ring
+1 Arcane Signet
+1 Izzet Signet
+1 Talisman of Creativity
+1 Mind Stone
+1 Thought Vessel
+
+INTERACTION (17)
+1 Counterspell
+1 Arcane Denial
+1 Swan Song
+1 Negate
+1 Fierce Guardianship
+1 Pact of Negation
+1 Lightning Bolt
+1 Abrade
+1 Chaos Warp
+1 Pongify
+1 Rapid Hybridization
+1 Cyclonic Rift
+1 Reality Shift
+1 Vandalblast
+1 Blasphemous Act
+1 Mystic Confluence
+1 Narset's Reversal
+
+CARD DRAW / SELECTION (16)
+1 Brainstorm
+1 Ponder
+1 Preordain
+1 Consider
+1 Opt
+1 Faithless Looting
+1 Frantic Search
+1 Expressive Iteration
+1 Treasure Cruise
+1 Fact or Fiction
+1 Windfall
+1 Wheel of Misfortune
+1 Echo of Eons
+1 Mystic Remora
+1 Rhystic Study
+1 Archmage Emeritus
+
+ENGINES / PAYOFFS (10)
+1 Curiosity
+1 Ophidian Eye
+1 Tandem Lookout
+1 The Locust God
+1 Talrand, Sky Summoner
+1 Young Pyromancer
+1 Storm-Kiln Artist
+1 Birgi, God of Storytelling
+1 Goblin Electromancer
+1 Baral, Chief of Compliance
+
+SPELLS / FINISHERS (14)
+1 Dig Through Time
+1 Thousand-Year Storm
+1 Metallurgic Summonings
+1 Mizzix's Mastery
+1 Past in Flames
+1 Bonus Round
+1 Jeska's Will
+1 Mana Geyser
+1 Reverberate
+1 Increasing Vengeance
+1 Twincast
+1 Crackle with Power
+1 Comet Storm
+1 Jaya's Immolating Inferno

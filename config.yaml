@@ -1,0 +1,46 @@
+scryfall:
+  user_agent: "MTG-Proxy-Printer/1.0 (personal-use)"
+  timeout_seconds: 15
+  max_retries: 5
+  request_delay_seconds: 0.2
+
+cards:
+  default_language: "en"
+  fallback_language: "en"
+  preferred_image: "png"
+
+print:
+  paper: "A4"
+  card_width_mm: 63
+  card_height_mm: 88
+  dpi_reference: 300
+
+page:
+  width_mm: 210
+  height_mm: 297
+  margin_mm: 5
+  gap_mm: 2
+  orientation: "portrait"
+
+bleed:
+  enabled: false
+  size_mm: 0
+
+cut_marks:
+  enabled: true
+  length_mm: 2
+  offset_mm: 1
+
+duplex:
+  enabled: true
+  flip: "long_edge"
+
+output:
+  directory: "saida"
+  # Pasta do cache de imagens. Relativo (ex.: "cartas") vai para
+  # %LOCALAPPDATA%/MTGProxy/cartas no executável, ou ao lado do script em dev.
+  # Use caminho absoluto (ex.: "C:/MTGProxy/cartas") para fixar em outro lugar.
+  cache_directory: "cartas"
+  generate_combined_pdf: true
+  generate_front_pdf: true
+  generate_back_pdf: true

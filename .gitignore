@@ -1,0 +1,21 @@
+# Arquivos gerados / ignorados pelo controle de versão
+
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Cache de imagens (baixadas da Scryfall)
+cartas/
+!cartas/.gitkeep
+
+# Saída
+saida/*.pdf
+saida/relatorio.txt
+
+# Ambiente
+.venv/
+venv/
+.env

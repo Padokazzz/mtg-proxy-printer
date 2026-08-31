@@ -1,0 +1,6 @@
+﻿COMMANDER
+1 Niv-Mizzet, Parun
+
+INTERACTION (2)
+1 Counterspell
+2 Lightning Bolt
