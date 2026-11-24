@@ -1,3 +1,9 @@
+> **Projeto selecionado do portfólio** · Ferramenta Python para geração de PDFs de playtesting, com CLI, configuração declarativa e processamento de imagens.
+>
+> **Stack:** Python 3.11+ · Pillow · ReportLab · PyYAML · pytest
+>
+> Projeto independente e educacional. Os materiais gerados são destinados exclusivamente a playtesting, não a torneios oficiais ou comercialização como cartas autênticas.
+
 # MTG Proxy Printer
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
