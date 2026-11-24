@@ -1,115 +1,132 @@
-> **Projeto selecionado do portfólio** · Ferramenta Python para geração de PDFs de playtesting, com CLI, configuração declarativa e processamento de imagens.
->
-> **Stack:** Python 3.11+ · Pillow · ReportLab · PyYAML · pytest
->
-> Projeto independente e educacional. Os materiais gerados são destinados exclusivamente a playtesting, não a torneios oficiais ou comercialização como cartas autênticas.
-
 # MTG Proxy Printer
 
+Ferramenta de linha de comando em Python para gerar PDFs de cartas de **Magic: The Gathering** destinados a playtesting.
+
+A partir de uma lista de cartas, o programa consulta dados e imagens na API pública da [Scryfall](https://scryfall.com/), organiza as cartas em páginas para impressão e permite ajustar dimensões, margens, espaçamento e configuração duplex.
+
+> **Uso educacional e de playtesting.** Os materiais gerados não são cartas autênticas, não devem ser comercializados como tais e não são destinados a torneios oficiais.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://www.python.org/downloads/)
 
-**Ferramenta educacional para criação de proxies de Magic: The Gathering para playtesting.**
+## Funcionalidades
 
-## Aviso Importante
+- Geração de PDFs com dimensões de carta configuráveis.
+- Layout para folhas A4.
+- Suporte a impressão frente e verso.
+- Cache local de imagens para reduzir consultas repetidas.
+- Arquivo YAML para personalização das configurações.
+- Comandos para validar listas e baixar imagens.
+- Páginas de teste para conferir alinhamento e escala de impressão.
 
-Este projeto é **puramente educacional** e tem como único objetivo facilitar a criação de proxies para playtesting antes de investir em cartas originais. As cartas geradas por esta ferramenta **não devem ser usadas em competições oficiais** e não possuem valor como cartas autênticas.
+## Como funciona
 
-O uso de proxies em torneios oficiais é **estritamente proibido** pela Wizards of the Coast. Esta ferramenta não apoia nem incentiva qualquer forma de falsificação ou uso fraudulento de cartas.
+```text
+Lista de cartas
+      │
+      ▼
+Parser e validação
+      │
+      ▼
+Consulta à Scryfall
+      │
+      ▼
+Cache e processamento de imagens
+      │
+      ▼
+Cálculo do layout
+      │
+      ▼
+Geração do PDF
+```
 
-## Sobre o Projeto
+## Tecnologias
 
-O MTG Proxy Printer é uma ferramenta que gera PDFs prontos para impressão a partir de uma lista de cartas de Magic: The Gathering. Utiliza a API pública da [Scryfall](https://scryfall.com/) como fonte de dados e imagens.
-
-### Funcionalidades
-
-- Geração de PDFs com cartas em formato padrão (63mm x 88mm)
-- Suporte a impressão duplex (frente e verso)
-- Cache local de imagens para uso offline
-- Páginas de teste para alinhamento e escala
-- Configuração personalizável via arquivo YAML
-- Interface de linha de comandos (CLI)
-
-### Para que serve?
-
-- **Playtesting**: Teste seus decks antes de investir em cartas originais
-- **Aprendizado**: Ideal para novos jogadores que estão começando no Magic
-- **Prototipação**: Crie e teste novos decks rapidamente
-- **Preservação**: Mantenha suas cartas originais em bom estado
+- Python 3.11+
+- Pillow para processamento de imagens.
+- ReportLab para geração de PDFs.
+- PyYAML para leitura das configurações.
+- pytest para testes.
 
 ## Instalação
 
-### Requisitos
-
-- Python 3.11 ou superior
-- Pip (gerenciador de pacotes do Python)
-
-### Instalação via pip
+Clone o repositório:
 
 ```bash
-# Clone o repositório
 git clone https://github.com/Padokazzz/mtg-proxy-printer.git
 cd mtg-proxy-printer
-
-# Instale as dependências
-pip install -e ".[dev]"
 ```
 
-### Instalação via requirements.txt
+Crie e ative um ambiente virtual:
 
 ```bash
-# Clone o repositório
-git clone https://github.com/Padokazzz/mtg-proxy-printer.git
-cd mtg-proxy-printer
+python -m venv .venv
+```
 
-# Crie um ambiente virtual (recomendado)
-python -m venv venv
-venv\Scripts\activate  # Windows
-# ou
-source venv/bin/activate  # Linux/Mac
+Windows:
 
-# Instale as dependências
-pip install -r requirements.txt
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+Linux ou macOS:
+
+```bash
+source .venv/bin/activate
+```
+
+Instale o projeto e as dependências de desenvolvimento:
+
+```bash
+pip install -e ".[dev]"
 ```
 
 ## Uso
 
-### Preparando sua lista de cartas
+Crie um arquivo de texto com uma carta por linha:
 
-Crie um arquivo `deck.txt` com o nome das cartas, uma por linha:
-
-```
+```text
 Lightning Bolt
 Counterspell
 Sol Ring
 Command Tower
 ```
 
-### Gerando o PDF
+Gere o PDF:
 
 ```bash
 python -m mtg_proxy generate --deck deck.txt --config config.yaml --output saida/
 ```
 
-### Outros comandos disponíveis
+### Outros comandos
+
+Validar a lista:
 
 ```bash
-# Validar o deck sem consultar a API
 python -m mtg_proxy check --deck deck.txt
+```
 
-# Baixar e cachear imagens das cartas
+Baixar e armazenar imagens em cache:
+
+```bash
 python -m mtg_proxy download --deck deck.txt --config config.yaml
+```
 
-# Gerar página de teste de alinhamento
+Gerar uma página para teste de impressão duplex:
+
+```bash
 python -m mtg_proxy duplex-test
+```
 
-# Gerar página de teste de escala (50mm)
+Gerar uma página para conferir a escala:
+
+```bash
 python -m mtg_proxy scale-test
 ```
 
 ## Configuração
 
-Edite o arquivo `config.yaml` para personalizar as configurações:
+As opções de impressão ficam no arquivo `config.yaml`. Exemplo:
 
 ```yaml
 print:
@@ -129,55 +146,55 @@ duplex:
   flip: "long_edge"
 ```
 
-## Estrutura do Projeto
+Ajuste as dimensões e a opção de inversão duplex de acordo com a impressora e o tipo de papel. Recomenda-se gerar e conferir uma página de teste antes de imprimir um conjunto completo.
 
+## Estrutura do projeto
+
+```text
+src/mtg_proxy/
+├── cli.py
+├── config.py
+├── deck/
+├── images/
+├── layout/
+├── pdf/
+└── scryfall/
+tests/
+docs/
+config.yaml
+requirements.txt
 ```
-mtg-proxy-printer/
-├── src/mtg_proxy/         # Código fonte principal
-│   ├── cli.py            # Interface de linha de comandos
-│   ├── config.py         # Carregamento de configurações
-│   ├── deck/             # Parser de decks
-│   ├── images/           # Processamento de imagens
-│   ├── layout/           # Layout das páginas
-│   ├── pdf/              # Geração de PDFs
-│   └── scryfall/         # Cliente da API Scryfall
-├── tests/                # Testes unitários
-├── docs/                 # Documentação
-├── config.yaml           # Configurações padrão
-└── requirements.txt      # Dependências
-```
+
+- `deck/`: leitura e validação das listas.
+- `images/`: download, cache e processamento de imagens.
+- `layout/`: cálculo da disposição das cartas nas páginas.
+- `pdf/`: composição e exportação dos documentos.
+- `scryfall/`: integração com a API de dados e imagens.
 
 ## Desenvolvimento
 
-### Executando testes
+Execute os testes com:
 
 ```bash
 pytest
 ```
 
-### Contribuindo
+Para contribuir:
 
-1. Faça um fork do repositório
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-funcionalidade`)
-3. Commit suas alterações (`git commit -m 'Adiciona nova funcionalidade'`)
-4. Push para a branch (`git push origin feature/nova-funcionalidade`)
-5. Abra um Pull Request
+1. Faça um fork do repositório.
+2. Crie uma branch para sua alteração.
+3. Implemente e teste a mudança.
+4. Abra um Pull Request com a descrição do que foi alterado.
+
+## Créditos e aviso legal
+
+- [Scryfall](https://scryfall.com/): fonte de dados e imagens das cartas.
+- [Magic: The Gathering](https://magic.wizards.com/): propriedade intelectual da Wizards of the Coast.
+
+MTG Proxy Printer é um projeto independente, sem afiliação, endosso ou patrocínio da Wizards of the Coast ou da Hasbro. Magic: The Gathering é uma marca registrada de seus respectivos proprietários.
+
+O software é fornecido "como está", sem garantias. O usuário é responsável por respeitar os direitos autorais, os termos dos serviços utilizados e as regras dos ambientes em que os materiais forem utilizados.
 
 ## Licença
 
-Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
-
-## Créditos
-
-- [Scryfall](https://scryfall.com/) - API de imagens e dados de cartas
-- [Magic: The Gathering](https://magic.wizards.com/) - Wizards of the Coast
-
-## Aviso Legal
-
-MTG Proxy Printer é um projeto independente e não é afiliado, endossado ou patrocinado pela Wizards of the Coast ou pela Hasbro, Inc. Magic: The Gathering é uma marca registrada da Wizards of the Coast.
-
-Este software é fornecido "como está", sem garantia de qualquer tipo. O uso é responsável do usuário.
-
----
-
-**Lembre-se**: Cartas geradas por esta ferramenta são apenas para fins de teste e aprendizado. Respeite sempre as regras dos torneios e compre cartas originais para uso em competições oficiais.
+Este projeto está licenciado sob a [MIT](LICENSE).
